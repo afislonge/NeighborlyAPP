@@ -39,15 +39,14 @@ def feeds():
     #              published=post.created_date)
 
     # return feed.get_response()
-
+    return response
 
 @app.route('/rss')
 def rss():
     fg = FeedGenerator()
     fg.title('Feed title')
     fg.description('Feed Description')
-    fg.link(href='https://neighborly-client-v1.azurewebsites.net/')
-    
+    fg.link(href='https://neighborly-client-v1.azurewebsites.net/')    
 
     response = requests.get(settings.API_URL + '/getAdvertisements')
     ads = response.json()
